@@ -1,1 +1,33 @@
 
+- name: "timescaledb  | Create Extension"
+  shell: >
+    "CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;" | sudo -u postgres psql zabbix
+  environment:
+    PGPASSWORD: '{{ zabbix_server_dbpassword }}'
+  when:
+    - zabbix_version is version('3.0', '>=')
+    - zabbix_database_sqlload
+  tags:
+    - zabbix-server
+    - database
+
+- name: "timescaledb | Create schema"
+  shell: >
+    cd {{ datafiles_path }} &&
+    if [ -f timescaledb.sql.gz ]; then gunzip timescaledb.sql.gz ; fi &&
+    psql -h '{{ zabbix_server_dbhost }}'
+    -U '{{ zabbix_server_dbuser }}'
+    -d '{{ zabbix_server_dbname }}'
+    -p '{{ zabbix_server_dbport }}'
+    -f timescaledb.sql && touch /etc/zabbix/schema.done.tsql
+  args:
+    creates: /etc/zabbix/schema.done
+    warn: no
+  environment:
+    PGPASSWORD: '{{ zabbix_server_dbpassword }}'
+  when:
+    - zabbix_version is version('3.0', '>=')
+    - zabbix_database_sqlload
+  tags:
+    - zabbix-server
+    - database

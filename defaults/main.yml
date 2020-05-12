@@ -2,7 +2,7 @@
 # defaults file;
 # zabbix role specific
 
-zabbix_server_version: 4.4
+zabbix_server_version: 5.0
 zabbix_version: "{{ zabbix_server_version }}"
 zabbix_repo: zabbix
 
@@ -119,7 +119,7 @@ zabbix_server_startescalators: 1
 zabbix_server_vmwareperffrequency: 60
 zabbix_server_vmwaretimeout: 10
 zabbix_server_manage_service: True
-
+zabbix_server_timescaledb: True
 # SELinux specific
 zabbix_selinux: False
 selinux_allow_zabbix_can_network: False

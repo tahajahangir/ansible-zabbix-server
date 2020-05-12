@@ -30,6 +30,10 @@
 - name: "Installing the postgresql database"
   include_tasks: "{{ zabbix_server_database_long }}.yml"
 
+- name: "Installing the timescaledb database"
+  include_tasks: "timescaledb.yml"
+  when:   zabbix_server_timescaledb | bool
+
 - name: "Configure zabbix-server"
   template:
     src: zabbix_server.conf.j2
