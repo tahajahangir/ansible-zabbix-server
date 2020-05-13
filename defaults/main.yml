@@ -12,7 +12,7 @@ zabbix_server_install_database_client: True
 
 zabbix_service_state: started
 zabbix_service_enabled: True
-
+zabbix_python_prefix: python3
 zabbix_repo_yum:
   - name: zabbix
     description: Zabbix Official Repository - $basearch
