@@ -1,7 +1,7 @@
 
 - name: "timescaledb  | Create Extension"
   shell: >
-    "CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;" | sudo -h {{ zabbix_server_dbhost }} -U {{ zabbix_server_dbuser }} -p {{ zabbix_server_dbport }} psql {{ zabbix_server_dbname }}
+    "CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;" | psql -h {{ zabbix_server_dbhost }} -U {{ zabbix_server_dbuser }} -p {{ zabbix_server_dbport }}  {{ zabbix_server_dbname }}
   environment:
     PGPASSWORD: '{{ zabbix_server_dbpassword }}'
   when:
