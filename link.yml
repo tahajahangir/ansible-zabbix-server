@@ -1,2 +1,2 @@
 - name: "Include OS-specific variables"
-  include_vars: "tasks/link.yml"
+  include_vars: "tasks/main.yml"
