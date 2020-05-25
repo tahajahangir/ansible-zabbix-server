@@ -1,2 +1,4 @@
+
 - name: "Include OS-specific variables"
+  hosts: zabbixserver:zabbixproxy
   include_vars: "tasks/main.yml"
