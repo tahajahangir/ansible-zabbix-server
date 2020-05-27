@@ -2,4 +2,4 @@
   gather_facts: no
   tasks:
   - name: "Include OS-specific variables"
-    include_vars: "/tasks/main.yml"
+    include_tasks: "main.yml"
