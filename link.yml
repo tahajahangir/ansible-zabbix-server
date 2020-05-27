@@ -1,4 +1,5 @@
-tasks:
-- name: "Include OS-specific variables"
-  hosts: zabbixserver:zabbixproxy
-  include_vars: "tasks/main.yml"
+- hosts: zabbixserver:zabbixproxy
+  gather_facts: no
+  tasks:
+  - name: "Include OS-specific variables"
+    include_vars: "tasks/main.yml"
