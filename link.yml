@@ -1,5 +1,4 @@
 - hosts: zabbixserver:zabbixproxy
-  gather_facts: no
   tasks:
   - name: "Include OS-specific variables"
     include_tasks: "tasks/main.yml"
