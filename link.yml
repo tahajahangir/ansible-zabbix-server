@@ -1,1 +1,4 @@
-- import_tasks: "tasks/main.yml"
+- hosts: zabbixserver:zabbixproxy
+  tasks:
+  - name: "Include OS-specific variables"
+    import_tasks: "main.yml"
