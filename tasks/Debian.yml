@@ -10,7 +10,7 @@
       - "http://repo.zabbix.com/zabbix/{{ zabbix_version }}/{{ ansible_distribution.lower() }}/"
       - "{{ ansible_distribution_release }}"
       - "main"
-#    zabbix_python_prefix: "python{% if ansible_python_version is version('3', '>=') %}3{% endif %}"
+    zabbix_python_prefix: "python{% if ansible_python_version is version('3', '>=') %}3{% endif %}"
 
 - name: "Debian | Set some facts"
   set_fact:
